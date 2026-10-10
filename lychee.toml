@@ -1,0 +1,11 @@
+# Link checker configuration (https://lychee.cli.rs)
+max_retries = 3
+accept = ["200..=299", "429"]
+exclude = [
+  # Private repository and workspace links need authentication.
+  "^https://github\\.com/MBAR-Millibar/Code-of-Conduct",
+  "^https://linear\\.app/",
+  "^https://app\\.notion\\.com/",
+  # Not published yet (MBAR-81 Part A).
+  "^https://millibar\\.io/code-of-conduct",
+]

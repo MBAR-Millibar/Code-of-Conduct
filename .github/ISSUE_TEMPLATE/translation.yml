@@ -1,0 +1,45 @@
+name: Translation
+description: Add a new language, review a translation, or report a translation problem.
+title: "[i18n] "
+labels: ["translation"]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What would you like to do?
+      options:
+        - Add a new language
+        - Review an existing translation
+        - Report a mistake in a translation
+        - Update an outdated translation
+    validations:
+      required: true
+  - type: input
+    id: language
+    attributes:
+      label: Language
+      description: Name and ISO 639-1 code, e.g. "Português (pt)".
+    validations:
+      required: true
+  - type: dropdown
+    id: native
+    attributes:
+      label: Are you a native or fluent speaker?
+      options:
+        - Native speaker
+        - Fluent
+        - Neither (reporting only)
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: For mistakes, quote the translated text and explain the problem.
+  - type: checkboxes
+    id: read
+    attributes:
+      label: Before you start
+      options:
+        - label: I have read [TRANSLATING.md](https://github.com/MBAR-Millibar/Code-of-Conduct/blob/main/TRANSLATING.md).
+          required: true
