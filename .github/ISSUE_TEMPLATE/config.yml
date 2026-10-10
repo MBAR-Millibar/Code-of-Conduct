@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🚨 Report a Code of Conduct concern
+    url: mailto:conduct@millibar.io
+    about: Do NOT report incidents in an issue. Email conduct@millibar.io or talk to a team member you trust. Reports are handled confidentially.
+  - name: Read the Code of Conduct
+    url: https://github.com/MBAR-Millibar/Code-of-Conduct/blob/main/CODE_OF_CONDUCT.md
+    about: The current English text.

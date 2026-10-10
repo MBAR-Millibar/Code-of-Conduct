@@ -1,0 +1,36 @@
+name: annual review
+
+on:
+  schedule:
+    - cron: "0 8 1 10 *" # 1 October, 08:00 UTC
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  open-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          year=$(date +%Y)
+          title="Annual review $year"
+          if gh issue list --state all --search "\"$title\" in:title" --json number -q '.[0].number' | grep -q .; then
+            echo "Issue '$title' already exists"; exit 0
+          fi
+          gh label create review --color 0E8A16 --force >/dev/null
+          gh issue create --title "$title" --label review --body "$(cat <<'BODY'
+          It is time for the yearly review of the Code of Conduct (see GOVERNANCE.md). Do not include details of individual reports.
+
+          - [ ] The reporting address (conduct@millibar.io) is current and monitored
+          - [ ] The 48-hour acknowledgement commitment was met over the past year
+          - [ ] Lessons from reports (anonymised) have been considered
+          - [ ] Scope still matches the spaces Millibar runs (apps, channels, events)
+          - [ ] Sources and attribution are up to date (e.g. new Contributor Covenant version)
+          - [ ] Translations are not outdated
+          - [ ] Team, contractors and advisors have acknowledged the current major version
+          BODY
+          )"

@@ -1,0 +1,26 @@
+name: Annual review
+description: Yearly review of the Code of Conduct (maintainers).
+title: "Annual review "
+labels: ["review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We review the code at least once a year (see GOVERNANCE.md). Do not include details of individual reports.
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: The reporting address (conduct@millibar.io) is current and monitored
+        - label: The 48-hour acknowledgement commitment was met over the past year
+        - label: Lessons from reports (anonymised) have been considered
+        - label: Scope still matches the spaces Millibar runs (apps, channels, events)
+        - label: Sources and attribution are up to date (e.g. new Contributor Covenant version)
+        - label: Translations are not outdated
+        - label: Team, contractors and advisors have acknowledged the current major version
+  - type: textarea
+    id: notes
+    attributes:
+      label: Proposed changes
+      description: Link wording change issues here.
